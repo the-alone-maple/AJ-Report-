@@ -1,0 +1,10 @@
+# 该文件配置会继承bootstrap.xml，只需要配置数据库等差异配置
+spring:
+  datasource:
+    url: jdbc:mysql://10.108.26.197:3306/aj_report?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: appuser@anji
+
+customer:
+  file:
+    dist-path: D:\Workspace\AJ-Report\report-core\upload

@@ -1,0 +1,72 @@
+/* 滚动条 */
+
+::-webkit-scrollbar-track-piece {
+  /*修改滚动条的背景和圆角*/
+  background: #f7f7f7;
+  -webkit-border-radius: 7px;
+}
+
+/*修改垂直滚动条的样式*/
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #dcdfe6;
+  -webkit-border-radius: 7px;
+}
+
+/*修改水平滚动条的样式*/
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #dcdfe6;
+  -webkit-border-radius: 7px;
+}
+
+/* IE7 */
+input:focus,
+a:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+input:-webkit-autofill {
+  /* -webkit-box-shadow: 0 0 0px 1000px black inset !important; */
+  /* background-color: #ffffff !important;*/
+  /* background-image: none !important; 
+   color: white !important;  */
+  box-shadow: 0 0 0px 1000px rgb(229, 233, 238) inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 1) inset !important;
+  border: 0px solid #ccc !important;
+  -webkit-text-fill-color: #fff;
+}
+/* input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+   background-color: #040406 !important;
+   background-image: none !important;
+   color: white !important;
+ } */
+::-ms-clear {
+  display: none;
+}
+
+::-ms-reveal {
+  display: none;
+}
+
+.on-focus:focus {
+  border: 1px solid #5bc0de;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  width: 100%;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+.el-table td {
+  padding: 8px 0;
+}

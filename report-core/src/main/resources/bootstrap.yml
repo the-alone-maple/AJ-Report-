@@ -1,0 +1,66 @@
+server:
+  port: 9095
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: aj-report
+  servlet:
+    multipart:
+      max-file-size: 10MB #上传图片大小限制为10MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  messages:
+    basename: i18n/messages
+  datasource:
+    url: jdbc:mysql://10.108.26.197:3306/aj_report?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: appuser@anji
+  flyway:
+    baseline-on-migrate: true
+    #数据库连接配置
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    placeholder-replacement: false
+    init-sqls:
+      - CREATE DATABASE IF NOT EXISTS `aj_report` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+  mapperLocations:
+    - classpath*:/mapper/**/*.xml
+    - classpath*:/modeler-mybatis-mappings/**/*.xml
+
+management:
+  endpoints:
+    web:
+      base-path: /
+logging:
+  config: classpath:logback.xml
+
+# 本应用自定义参数
+customer:
+  # 开发测试用本地文件，如果是生产，请考虑使用对象存储
+  file:
+    #上传对应本地全路径
+    dist-path: /app/disk/upload/
+    white-list: .png|.jpg|.gif|.icon|.pdf|.xlsx|.xls|.csv|.mp4|.avi
+    excelSuffix: .xlsx|.xls|.csv
+    #上传对应下载的下载链接路径 http://serverip:9095/file/download
+    downloadPath: http://10.108.26.197:9095/file/download
+
+  # 跳过token验证和权限验证的url清单
+  skip-authenticate-urls: /gaeaDict/all, /login, /static, /file/download/, /index.html
+  user:
+    ##新增用户默认密码
+    default:
+      password: 123456
